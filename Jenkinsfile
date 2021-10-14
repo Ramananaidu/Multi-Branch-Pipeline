@@ -5,8 +5,9 @@ pipeline {
         stage ('Compile Stage') {
 
             steps {
-                withMaven(maven : 'maven-3.6.3') {
-                    sh 'mvn clean compile'
+                def mvn_version = 'M3'
+                    withEnv( ["PATH+MAVEN=${tool mvn_version}/bin"] ) {
+                     //sh "mvn clean package"
                 }
             }
         }
