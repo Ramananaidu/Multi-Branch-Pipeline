@@ -8,7 +8,7 @@ pipeline {
 
             steps {
                 
-                withEnv( ["PATH+MAVEN=${tool mvn_version}/bin"] ) {
+                withEnv(maven : 'maven_3_8_2') {
                      //sh "mvn clean package"
                 }
             }
@@ -17,7 +17,7 @@ pipeline {
         stage ('Testing Stage') {
 
             steps {
-                withMaven(maven : 'maven-3.6.3') {
+                withMaven(maven : 'maven_3_8_2') {
                     sh 'mvn test'
                 }
             }
@@ -26,7 +26,7 @@ pipeline {
 
         stage ('Deployment Stage') {
             steps {
-                withMaven(maven : 'maven-3.6.3') {
+                withMaven(maven : 'maven_3_8_2') {
                     sh 'mvn deploy'
                 }
             }
