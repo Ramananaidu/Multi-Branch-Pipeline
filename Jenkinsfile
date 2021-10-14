@@ -1,16 +1,12 @@
 pipeline {
     agent any
-    environment {
-       def mvn_version = 'M2_HOME'
-    }
 
     stages {
         stage ('Compile Stage') {
 
             steps {
-                
-                withEnv(maven : 'maven_3_8_2') {
-                     //sh "mvn clean package"
+                withMaven(maven : 'maven_3_8_2') {
+                    sh 'mvn clean compile'
                 }
             }
         }
@@ -33,5 +29,4 @@ pipeline {
             }
         }
     }
-  }
-
+}
