@@ -2,6 +2,7 @@ pipeline {
     agent any
     environment {
        def mvn_version = 'M2_HOME'
+    }
 
     stages {
         stage ('Compile Stage') {
@@ -33,4 +34,4 @@ pipeline {
         }
     }
   }
-}
+
