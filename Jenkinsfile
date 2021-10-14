@@ -5,7 +5,7 @@ pipeline {
         stage ('Compile Stage') {
 
             steps {
-                mvn_version = 'M3'
+               // mvn_version = 'M3'
                 withEnv( ["PATH+MAVEN=${tool mvn_version}/bin"] ) {
                      //sh "mvn clean package"
                 }
